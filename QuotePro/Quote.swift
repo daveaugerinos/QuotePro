@@ -18,7 +18,7 @@ class Quote: NSObject {
     func downloadRandomQuoteAndAuthor(completionHandler: @escaping (Bool) -> Void) {
         
         
-        Alamofire.request("https://httpbin.org/get").responseJSON { response in
+        Alamofire.request("http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en").responseJSON { response in
             print(response.request!)  // original URL request
             print(response.response!) // HTTP URL response
             print(response.data!)     // server data
