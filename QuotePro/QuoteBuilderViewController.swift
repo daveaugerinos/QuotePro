@@ -42,7 +42,17 @@ class QuoteBuilderViewController: UIViewController {
     @IBAction func randomQuoteTapped(_ sender: UIButton) {
     
         let quote = Quote()
-        quote.downloadRandomQuoteAndAuthor()
+        quote.downloadRandomQuoteAndAuthor(completionHandler: { isSuccessful -> Void in
+         
+            if isSuccessful {
+                
+                DispatchQueue.main.async {
+                    
+                    self.quoteView.quoteLabel.text = quote.quote
+                    self.quoteView.authorLabel.text = quote.author
+                }
+            }
+        })
         
         print("randomQuoteTapped")
     }
@@ -53,6 +63,7 @@ class QuoteBuilderViewController: UIViewController {
         photo.downloadRandomPhoto(completionHandler: { isSuccessful -> Void in
             
             if isSuccessful {
+                
                 DispatchQueue.main.async {
                     
                     self.quoteView.photoImageView.image = photo.photo
