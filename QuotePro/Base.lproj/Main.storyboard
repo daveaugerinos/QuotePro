@@ -27,7 +27,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zs6-vH-VIz">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zs6-vH-VIz">
                                             <rect key="frame" x="8" y="8" width="80" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="6Bh-yr-No6"/>
@@ -120,16 +120,16 @@
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="x7o-Hg-rlP" customClass="QuoteView" customModule="QuotePro" customModuleProvider="target">
-                                <rect key="frame" x="16" y="81" width="345" height="345"/>
+                                <rect key="frame" x="16" y="114" width="345" height="172.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="x7o-Hg-rlP" secondAttribute="height" multiplier="1:1" id="jZv-Do-awV"/>
+                                    <constraint firstAttribute="width" secondItem="x7o-Hg-rlP" secondAttribute="height" multiplier="2:1" id="jZv-Do-awV"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="x7o-Hg-rlP" firstAttribute="top" secondItem="YDo-Gw-5zd" secondAttribute="bottom" constant="17" id="T9V-K2-WSQ"/>
+                            <constraint firstItem="x7o-Hg-rlP" firstAttribute="top" secondItem="YDo-Gw-5zd" secondAttribute="bottom" constant="50" id="T9V-K2-WSQ"/>
                             <constraint firstItem="x7o-Hg-rlP" firstAttribute="leading" secondItem="Vw8-dh-Ml0" secondAttribute="leading" constant="16" id="eqU-ug-ME1"/>
                             <constraint firstAttribute="trailing" secondItem="x7o-Hg-rlP" secondAttribute="trailing" constant="14" id="soe-SO-IbP"/>
                         </constraints>

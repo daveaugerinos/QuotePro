@@ -13,19 +13,13 @@ class QuoteProTableViewController: UITableViewController, SaveQuoteProProtocol {
     var quotesArray = [QuotePro]()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        self.clearsSelectionOnViewWillAppear = false
 
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        quotesArray = prepareData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
@@ -86,34 +80,52 @@ class QuoteProTableViewController: UITableViewController, SaveQuoteProProtocol {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
         // image to share
-        let image = UIImage(named: "test1")
+        if( quotesArray.count > 0) {
+            
+            let quotePro = quotesArray[indexPath.row]
+            quotePro.quote?.quote = ""
+            quotePro.quote?.author = ""
+            
         
-        // set up activity view controller
-        let imageToShare = [ image! ]
-        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        
-        // exclude some activity types from the list (optional)
-        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop ]
-        
-        // present the view controller
-        self.present(activityViewController, animated: true, completion: nil)
+            
+            let quoteView = QuoteView()
+            //quoteView.backgroundColor = UIColor.red
+            
+            quoteView.setupWithQuote(quotePro: quotePro)
+            quoteView.translatesAutoresizingMaskIntoConstraints = false
+            
+            view.addSubview(quoteView)
+            
+            quoteView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            quoteView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150).isActive = true
+            quoteView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: 0).isActive = true
+            quoteView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5, constant: 0).isActive = true
+            
+            
+            guard let image = quotePro.photo?.photo else {
+                return
+            }
+            
+            let imageToShare = [ image ]
+            
+            // set up activity view controller
+            let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            
+            // exclude some activity types from the list (optional)
+            activityViewController.excludedActivityTypes = [ UIActivityType.airDrop ]
+            
+            
+            // present the view controller
+            self.present(activityViewController, animated: true, completion: nil)
+            
+            activityViewController.completionWithItemsHandler =
+                {(activity, completed, returnObjects, error) in
+                    
+                    quoteView.removeFromSuperview()
+            }
+        }
     }
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
 
     // MARK: - Navigation
@@ -141,22 +153,6 @@ class QuoteProTableViewController: UITableViewController, SaveQuoteProProtocol {
 
     
     // MARK: - Private Methods
-    
-    func prepareData() -> [QuotePro] {
-        
-        let quote1 = Quote();
-        quote1.quote = "Super meaningful life fullfilling quote"
-        quote1.author = "Brilliant respected person"
-
-        let photo1 = Photo();
-        photo1.photo = UIImage(named: "test1")
-        
-        let quotePro1 = QuotePro(with: quote1, photo: photo1)
-        
-        let dataArray = [quotePro1]
-        
-        return dataArray
-    }
     
     func saveQuoteProWithSnapshot(quotePro: QuotePro) {
         
