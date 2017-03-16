@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cd3-cn-oiA" id="UqR-CL-7SN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zs6-vH-VIz">
@@ -134,6 +134,9 @@
                             <constraint firstAttribute="trailing" secondItem="x7o-Hg-rlP" secondAttribute="trailing" constant="14" id="soe-SO-IbP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="quoteView" destination="x7o-Hg-rlP" id="vck-nI-SEu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSB-ba-SCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -86,7 +86,7 @@ class QuoteProTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
         // image to share
-        let image = UIImage(named: "defaultPhoto")
+        let image = UIImage(named: "test1")
         
         // set up activity view controller
         let imageToShare = [ image! ]

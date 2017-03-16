@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class Quote: NSObject {
 
@@ -15,5 +17,6 @@ class Quote: NSObject {
 
     func downloadRandomQuoteAndAuthor() {
         
+
     }
 }

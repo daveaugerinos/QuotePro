@@ -10,17 +10,14 @@ import UIKit
 
 class QuoteBuilderViewController: UIViewController {
     
+    @IBOutlet weak var quoteView: QuoteView!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
         self.title = "Quote Builder"
-        
-        // Load custom view
-        
-        
-        
-
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,12 +41,24 @@ class QuoteBuilderViewController: UIViewController {
     
     @IBAction func randomQuoteTapped(_ sender: UIButton) {
     
+        let quote = Quote()
+        quote.downloadRandomQuoteAndAuthor()
+        
         print("randomQuoteTapped")
     }
     
     @IBAction func randomPhotoTapped(_ sender: UIButton) {
     
-        print("randomPhotoTapped")
+        let photo = Photo()
+        photo.downloadRandomPhoto(completionHandler: { isSuccessful -> Void in
+            
+            if isSuccessful {
+                DispatchQueue.main.async {
+                    
+                    self.quoteView.photoImageView.image = photo.photo
+                }
+            }
+        })
     }
     
     @IBAction func saveAsQuote(_ sender: UIButton) {
