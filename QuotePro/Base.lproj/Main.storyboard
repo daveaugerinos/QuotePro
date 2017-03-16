@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Quote Pro Table View Controller-->
+        <!--QuotePro-->
         <scene sceneID="LdP-Kg-v6B">
             <objects>
                 <tableViewController id="lnG-JN-XH1" customClass="QuoteProTableViewController" customModule="QuotePro" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,11 +70,74 @@
                             <outlet property="delegate" destination="lnG-JN-XH1" id="0zx-0o-D8P"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="8aq-im-Nku"/>
+                    <navigationItem key="navigationItem" title="QuotePro" id="8aq-im-Nku">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="Pbz-zm-Rme"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KtF-j0-RYB">
+                            <connections>
+                                <segue destination="3wC-dR-vam" kind="show" id="3Rk-Km-Tyz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgX-HH-Tuj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980" y="137.18140929535232"/>
+        </scene>
+        <!--Quote Builder View Controller-->
+        <scene sceneID="37U-T2-MfP">
+            <objects>
+                <viewController id="3wC-dR-vam" customClass="QuoteBuilderViewController" customModule="QuotePro" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YDo-Gw-5zd"/>
+                        <viewControllerLayoutGuide type="bottom" id="kIS-kf-oqG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vw8-dh-Ml0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klu-fw-Uw8">
+                                <rect key="frame" x="118" y="501" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Random Quote"/>
+                                <connections>
+                                    <action selector="randomQuoteTapped:" destination="3wC-dR-vam" eventType="touchUpInside" id="fTq-ml-JRW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o00-ue-sde">
+                                <rect key="frame" x="118" y="539" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Random Photo"/>
+                                <connections>
+                                    <action selector="randomPhotoTapped:" destination="3wC-dR-vam" eventType="touchUpInside" id="FzX-TE-h5y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cN-Hy-zYt">
+                                <rect key="frame" x="118" y="577" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save as Quote"/>
+                                <connections>
+                                    <action selector="saveAsQuote:" destination="3wC-dR-vam" eventType="touchUpInside" id="f82-Ud-g8s"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7o-Hg-rlP" customClass="QuoteView" customModule="QuotePro" customModuleProvider="target">
+                                <rect key="frame" x="16" y="81" width="345" height="345"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="x7o-Hg-rlP" secondAttribute="height" multiplier="1:1" id="jZv-Do-awV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x7o-Hg-rlP" firstAttribute="top" secondItem="YDo-Gw-5zd" secondAttribute="bottom" constant="17" id="T9V-K2-WSQ"/>
+                            <constraint firstItem="x7o-Hg-rlP" firstAttribute="leading" secondItem="Vw8-dh-Ml0" secondAttribute="leading" constant="16" id="eqU-ug-ME1"/>
+                            <constraint firstAttribute="trailing" secondItem="x7o-Hg-rlP" secondAttribute="trailing" constant="14" id="soe-SO-IbP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KSB-ba-SCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1936.8" y="136.28185907046478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zdM-df-CcD">

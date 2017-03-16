@@ -18,6 +18,9 @@
 		A23FA2B41E79D830009C1C86 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23FA2B31E79D830009C1C86 /* Quote.swift */; };
 		A23FA2B61E79D849009C1C86 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23FA2B51E79D849009C1C86 /* Photo.swift */; };
 		A23FA2B81E79D858009C1C86 /* QuotePro.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23FA2B71E79D858009C1C86 /* QuotePro.swift */; };
+		A23FA2BA1E79E500009C1C86 /* QuoteBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23FA2B91E79E500009C1C86 /* QuoteBuilderViewController.swift */; };
+		A23FA2C21E79F2E5009C1C86 /* QuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A23FA2C11E79F2E5009C1C86 /* QuoteView.xib */; };
+		A23FA2C41E7A007F009C1C86 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23FA2C31E7A007F009C1C86 /* QuoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		A23FA2B31E79D830009C1C86 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		A23FA2B51E79D849009C1C86 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A23FA2B71E79D858009C1C86 /* QuotePro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotePro.swift; sourceTree = "<group>"; };
+		A23FA2B91E79E500009C1C86 /* QuoteBuilderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteBuilderViewController.swift; sourceTree = "<group>"; };
+		A23FA2C11E79F2E5009C1C86 /* QuoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteView.xib; sourceTree = "<group>"; };
+		A23FA2C31E7A007F009C1C86 /* QuoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				A23FA2B11E79D702009C1C86 /* QuoteProTableViewCell.swift */,
+				A23FA2C31E7A007F009C1C86 /* QuoteView.swift */,
+				A23FA2C11E79F2E5009C1C86 /* QuoteView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -138,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				A23FA2AA1E79D51C009C1C86 /* QuoteProTableViewController.swift */,
+				A23FA2B91E79E500009C1C86 /* QuoteBuilderViewController.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -239,6 +248,7 @@
 				A23FA2951E79D169009C1C86 /* LaunchScreen.storyboard in Resources */,
 				A23FA2921E79D169009C1C86 /* Assets.xcassets in Resources */,
 				A23FA28D1E79D169009C1C86 /* Main.storyboard in Resources */,
+				A23FA2C21E79F2E5009C1C86 /* QuoteView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +272,8 @@
 				A23FA2881E79D169009C1C86 /* AppDelegate.swift in Sources */,
 				A23FA2AB1E79D51C009C1C86 /* QuoteProTableViewController.swift in Sources */,
 				A23FA2B41E79D830009C1C86 /* Quote.swift in Sources */,
+				A23FA2BA1E79E500009C1C86 /* QuoteBuilderViewController.swift in Sources */,
+				A23FA2C41E7A007F009C1C86 /* QuoteView.swift in Sources */,
 				A23FA2901E79D169009C1C86 /* QuotePro.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
