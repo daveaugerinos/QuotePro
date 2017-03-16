@@ -16,15 +16,9 @@ class Photo: NSObject {
     
     func downloadRandomPhoto(completionHandler: @escaping (Bool) -> Void) {
         
-        Alamofire.request("https://httpbin.org/image/png").responseImage { response in
-            debugPrint(response)
-            
-            print(response.request!)
-            print(response.response!)
-            debugPrint(response.result)
+        Alamofire.request("http://lorempixel.com/400/200/").responseImage { response in
             
             if let image = response.result.value {
-                print("image downloaded: \(image)")
                 
                 DispatchQueue.main.async {
                     

@@ -17,7 +17,7 @@ class QuoteBuilderViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Quote Builder"
-    
+        self.quoteView.photoImageView.image = UIImage(named: "defaultPhoto")
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,16 +45,16 @@ class QuoteBuilderViewController: UIViewController {
         quote.downloadRandomQuoteAndAuthor(completionHandler: { isSuccessful -> Void in
          
             if isSuccessful {
-                
-                DispatchQueue.main.async {
-                    
+                                   
                     self.quoteView.quoteLabel.text = quote.quote
+                    self.quoteView.quoteLabel.textColor = UIColor.yellow
+                    self.quoteView.quoteLabel.shadowColor = UIColor.lightGray
                     self.quoteView.authorLabel.text = quote.author
-                }
+                    self.quoteView.authorLabel.textColor = UIColor.yellow
+                    self.quoteView.authorLabel.shadowColor = UIColor.lightGray
             }
         })
-        
-        print("randomQuoteTapped")
+ 
     }
     
     @IBAction func randomPhotoTapped(_ sender: UIButton) {
@@ -64,10 +64,7 @@ class QuoteBuilderViewController: UIViewController {
             
             if isSuccessful {
                 
-                DispatchQueue.main.async {
-                    
                     self.quoteView.photoImageView.image = photo.photo
-                }
             }
         })
     }
