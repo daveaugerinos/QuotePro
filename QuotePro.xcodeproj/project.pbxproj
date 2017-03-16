@@ -22,6 +22,7 @@
 		A23FA2BA1E79E500009C1C86 /* QuoteBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23FA2B91E79E500009C1C86 /* QuoteBuilderViewController.swift */; };
 		A23FA2C21E79F2E5009C1C86 /* QuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A23FA2C11E79F2E5009C1C86 /* QuoteView.xib */; };
 		A23FA2C41E7A007F009C1C86 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23FA2C31E7A007F009C1C86 /* QuoteView.swift */; };
+		A27CCB571E7B214200434509 /* SaveQuoteProProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CCB561E7B214200434509 /* SaveQuoteProProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		A23FA2B91E79E500009C1C86 /* QuoteBuilderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteBuilderViewController.swift; sourceTree = "<group>"; };
 		A23FA2C11E79F2E5009C1C86 /* QuoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteView.xib; sourceTree = "<group>"; };
 		A23FA2C31E7A007F009C1C86 /* QuoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		A27CCB561E7B214200434509 /* SaveQuoteProProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveQuoteProProtocol.swift; sourceTree = "<group>"; };
 		F4F8BF96EC2DCD28CA10C9D6 /* Pods-QuotePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotePro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuotePro/Pods-QuotePro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 				A23FA2B51E79D849009C1C86 /* Photo.swift */,
 				A23FA2B71E79D858009C1C86 /* QuotePro.swift */,
 				A23FA28E1E79D169009C1C86 /* QuotePro.xcdatamodeld */,
+				A27CCB561E7B214200434509 /* SaveQuoteProProtocol.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				A23FA2AB1E79D51C009C1C86 /* QuoteProTableViewController.swift in Sources */,
 				A23FA2B41E79D830009C1C86 /* Quote.swift in Sources */,
 				A23FA2BA1E79E500009C1C86 /* QuoteBuilderViewController.swift in Sources */,
+				A27CCB571E7B214200434509 /* SaveQuoteProProtocol.swift in Sources */,
 				A23FA2C41E7A007F009C1C86 /* QuoteView.swift in Sources */,
 				A23FA2901E79D169009C1C86 /* QuotePro.xcdatamodeld in Sources */,
 			);
@@ -561,6 +565,7 @@
 				A23FA2A61E79D169009C1C86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A23FA2A71E79D169009C1C86 /* Build configuration list for PBXNativeTarget "QuoteProTests" */ = {
 			isa = XCConfigurationList;
@@ -569,6 +574,7 @@
 				A23FA2A91E79D169009C1C86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -10,7 +10,10 @@ import UIKit
 
 class QuoteBuilderViewController: UIViewController {
     
-    @IBOutlet weak var quoteView: QuoteView!
+    @IBOutlet private weak var quoteView: QuoteView!
+    var delegate:SaveQuoteProProtocol?
+    private var quote = Quote()
+    private var photo = Photo()
     
     override func viewDidLoad() {
         
@@ -27,50 +30,72 @@ class QuoteBuilderViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: - Action Methods -
     
     @IBAction func randomQuoteTapped(_ sender: UIButton) {
     
-        let quote = Quote()
         quote.downloadRandomQuoteAndAuthor(completionHandler: { isSuccessful -> Void in
          
             if isSuccessful {
-                                   
-                    self.quoteView.quoteLabel.text = quote.quote
-                    self.quoteView.quoteLabel.textColor = UIColor.yellow
-                    self.quoteView.quoteLabel.shadowColor = UIColor.lightGray
-                    self.quoteView.authorLabel.text = quote.author
-                    self.quoteView.authorLabel.textColor = UIColor.yellow
-                    self.quoteView.authorLabel.shadowColor = UIColor.lightGray
+                
+                self.quoteView.quoteLabel.text = self.quote.quote
+                self.quoteView.quoteLabel.textColor = UIColor.yellow
+                self.quoteView.quoteLabel.shadowColor = UIColor.lightGray
+                self.quoteView.authorLabel.text = self.quote.author
+                self.quoteView.authorLabel.textColor = UIColor.yellow
+                self.quoteView.authorLabel.shadowColor = UIColor.lightGray
             }
         })
- 
     }
     
     @IBAction func randomPhotoTapped(_ sender: UIButton) {
-    
-        let photo = Photo()
+        
         photo.downloadRandomPhoto(completionHandler: { isSuccessful -> Void in
             
             if isSuccessful {
                 
-                    self.quoteView.photoImageView.image = photo.photo
+                self.quoteView.photoImageView.image = self.photo.photo
             }
         })
     }
     
     @IBAction func saveAsQuote(_ sender: UIButton) {
+        
+        let image = snapshot(view: quoteView)
+        photo.photo = image
+        
+        let quotePro = QuotePro(with: quote, photo: photo)
+        
+        delegate?.saveQuoteProWithSnapshot(quotePro: quotePro)
+        
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            
+            dismiss(animated: true, completion: nil)
+        }
+            
+        else if let owningNavigationController = navigationController {
+            
+            owningNavigationController.popViewController(animated: true)
+        }
+            
+        else {
+            
+            fatalError("The QuoteBuilderViewController is not inside a navigation controller.")
+        }
+    }
     
-        print("saveAsQuote")
+    
+    // MARK: - Private Methods -
+    
+    private func snapshot(view: UIView) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        
+        return image!
     }
 }

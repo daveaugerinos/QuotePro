@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuoteProTableViewController: UITableViewController {
+class QuoteProTableViewController: UITableViewController, SaveQuoteProProtocol {
 
     var quotesArray = [QuotePro]()
     
@@ -115,17 +115,32 @@ class QuoteProTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+       
+        super.prepare(for: segue, sender: sender)
+        
+        if(segue.identifier == "quoteBuilderVC") {
+            
+            guard let quoteBuilderVC = segue.destination as? QuoteBuilderViewController else {
+                
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            quoteBuilderVC.delegate = self
+        }
+        
+        else {
+            
+            fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+        }
     }
-    */
+
     
-    // MARK: - Private Methods -
+    // MARK: - Private Methods
     
     func prepareData() -> [QuotePro] {
         
@@ -142,5 +157,14 @@ class QuoteProTableViewController: UITableViewController {
         
         return dataArray
     }
+    
+    func saveQuoteProWithSnapshot(quotePro: QuotePro) {
+        
+        // Add a new quote
+        let newIndexPath = IndexPath(row: quotesArray.count, section: 0)
+        
+        quotesArray.append(quotePro)
 
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
 }
